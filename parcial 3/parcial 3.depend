@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1556941496 source:c:\users\user\documents\c++\parcial 3\main.cpp
+	<iostream>
+	<exception>
+
