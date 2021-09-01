@@ -1,22 +1,26 @@
-def binary_search(lista, obj):
-    left = 0
-    right = len(lista)
-    while right > left:
-        mid = (left + right)
-        mid = lista[mid]
-        if mid == obj:
+def binary_search(arr, left, right, n):
+ 
+    if right >= left:
+ 
+        mid = (right + left) // 2
+ 
+        if arr[mid] == n:
             return mid
-        if obj < mid:
-            right = mid
-        if obj > mid:
-            left = mid + 1
-
-    return "Value not in list"
-
-
-# test cases
-print(binary_search([1, 2, 3, 4, 5], 1))
-print(binary_search([1, 2, 3, 4, 5], 2))
-print(binary_search([1, 2, 3, 4, 5], 0))
-print(binary_search([1, 2, 3, 4, 5], 3))
-print(binary_search([1, 2, 3, 4, 5], 5))
+ 
+        elif arr[mid] > n:
+            return binary_search(arr, left, mid - 1, n)
+ 
+        else:
+            return binary_search(arr, mid + 1, right, n)
+ 
+    else:
+        return -1
+arr = [ 1, 2, 3, 4, 5 ]
+n = 4
+ 
+result = binary_search(arr, 0, len(arr)-1, n)
+ 
+if result != -1:
+    print("Index:", str(result))
+else:
+    print("Not present")
